@@ -43,7 +43,7 @@ const int AnimatedSprite::getCurrentFrame()
 void AnimatedSprite::update()
 {
 	if (m_clock.getElapsedTime() > m_time) {
-		if (m_frames.size() > m_current_frame + 1)
+		if (m_current_frame < m_frames.size() + 1)
 		{
 			m_current_frame++;
 		}

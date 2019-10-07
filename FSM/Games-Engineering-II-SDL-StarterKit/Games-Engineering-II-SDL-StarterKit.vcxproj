@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{975B909E-5362-492A-A1B2-33050C95D846}</ProjectGuid>
     <RootNamespace>GamesEngineeringIISDLStarterKit</RootNamespace>
-    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir);$(SDL_SDK)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir);$(SDL_SDK)\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SDL_SDK)\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -79,11 +79,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\College Projects\Year 4\Game Eng 2\Y4-DesignPatternsFSM\FSM\Games-Engineering-II-SDL-StarterKit\assets\SDL2-2.0.10\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SDL_SDK)\include;$(SFML_SDK)\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\College Projects\Year 4\Game Eng 2\Y4-DesignPatternsFSM\FSM\Games-Engineering-II-SDL-StarterKit\assets\SDL2-2.0.10\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SDL_SDK)\lib\x86;$(SFML_SDK)\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2main.lib;SDL2test.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,10 +129,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimatedSprite.cpp" />
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="GameObjectParameters.cpp" />
+    <ClCompile Include="Idle.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
@@ -143,16 +147,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractFactory.h" />
+    <ClInclude Include="AnimatedSprite.h" />
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="GameObjectParameters.h" />
+    <ClInclude Include="Idle.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="LevelParser.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerFactory.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="TinyXML2.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>

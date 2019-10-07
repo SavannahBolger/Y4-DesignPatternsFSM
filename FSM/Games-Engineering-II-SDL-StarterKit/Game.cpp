@@ -1,12 +1,13 @@
 #include <Game.h>
 #include <iostream>
 #include <thread>
-
+#include <AnimatedSprite.h>
 
 using namespace std;
 
 Game::Game() : m_running(false)
 {
+	
 }
 
 Game::~Game()
