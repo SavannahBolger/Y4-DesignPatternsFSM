@@ -5,6 +5,8 @@
 #include <SFML\System\Clock.hpp>
 #include <vector>
 #include <Debug.h>
+#include <SDL.h>
+#include <SDL_image.h>
 
 using namespace std;
 using namespace sf;

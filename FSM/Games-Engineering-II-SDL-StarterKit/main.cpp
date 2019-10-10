@@ -1,3 +1,7 @@
+//@author: Savannah Bolger
+//@date: 10/10/2019
+//Animated Sprites using SDL
+
 #ifdef _DEBUG 
 #pragma comment(lib,"sfml-graphics-d.lib") 
 #pragma comment(lib,"sfml-audio-d.lib") 
@@ -33,8 +37,10 @@ int main(int argc, char** argv){
 
 	DEBUG_MSG("Game Object Created");
 
+	//create a new player
 	Player* player = new Player();
 
+	//create a new game
 	Game* game = new Game();
 
 	XMLDocument doc;
@@ -55,6 +61,7 @@ int main(int argc, char** argv){
 	DEBUG_MSG("Game Loop Starting......");
 	while(game->IsRunning())
 	{
+		//handle keyboard input and update and render the code
 		game->HandleEvents();
 		game->Update();
 		game->Render();
@@ -64,5 +71,6 @@ int main(int argc, char** argv){
 	game->CleanUp();
 	game->UnloadContent();
 	
+	system("pause");
 	return 0;
 }

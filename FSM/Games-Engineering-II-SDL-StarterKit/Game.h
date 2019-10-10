@@ -2,6 +2,7 @@
 #define GAME_H
 #include "Debug.h"
 #include <SDL.h>
+#include <SDL_image.h>
 
 class Game
 {
@@ -24,6 +25,8 @@ private:
 	SDL_Rect m_Source;
 	SDL_Rect m_Destination;
 	SDL_Surface* m_p_Surface;
+	SDL_Rect srcrect = { 0, 0, 86, 86 };
+	SDL_Rect dstrect = { 10, 10, 86, 86 };
 };
 #endif
 
